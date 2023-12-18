@@ -2,8 +2,8 @@ import flet as ft
 import requests
 
 def get_weather(city):
-    api_key = "cef30b9ce8a29e66ffa882b58826229c"
-    base_url = "http://api.openweathermap.org/data/2.5/weather"
+    api_key = "cef30b9ce8a29e66ffa882b58826229c" # api
+    base_url = "http://api.openweathermap.org/data/2.5/weather" # источник
     params = {
         "q": city,
         "appid": api_key,
@@ -34,15 +34,15 @@ def update_weather(city, page):
 def main(page: ft.Page):
     page.window_width = 550        # ширина окна
     page.window_height = 500       # высота окна
-    page.window_resizable = False  # размер не менять
+    page.window_resizable = False  # неизменяемый размер
     page.theme = ft.Theme(
         color_scheme=ft.ColorScheme(
-            primary=ft.colors.BLUE_400),
+            primary=ft.colors.BLUE_400), # Тема
     )
     def click_drop():
         pass
     def change_theme(e):
-        page.theme_mode = 'dark' if page.theme_mode == 'light' else 'light'
+        page.theme_mode = 'dark' if page.theme_mode == 'light' else 'light' # кнопка темы
         page.update()
     page.add(
         ft.Row(
@@ -70,8 +70,8 @@ def main(page: ft.Page):
             ],
       )
     )
-     # He знаю как реализовать пока что
-   # page.add(ft.Row([ft.ElevatedButton("Владикавказ", on_click=click_drop), ft.ElevatedButton("Беслан", on_click=click_drop)]))
+     # В будущем
+   # page.add(ft.Row([ft.ElevatedButton("Город 1", on_click=click_drop), ft.ElevatedButton("Город 2", on_click=click_drop)]))
     def add_clicked(e):
         city = new_task.value
         update_weather(city, page)
